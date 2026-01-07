@@ -1,5 +1,3 @@
-This project structure and README content are designed for your GitHub repository, based on the **Smart Environments Monitoring and Actuation System (SEMAS)** requirements for the **Smart Parking Lot** theme.
-
 ***
 
 # Smart Parking Lot: Monitoring and Actuation System (SEMAS)
