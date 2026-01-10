@@ -1,0 +1,15 @@
+/PAMOProject/*.iml
+/PAMOProject/.gradle
+/PAMOProject/local.properties
+/PAMOProject/.idea/caches
+/PAMOProject/.idea/libraries
+/PAMOProject/.idea/modules.xml
+/PAMOProject/.idea/workspace.xml
+/PAMOProject/.idea/navEditor.xml
+/PAMOProject/.idea/assetWizardSettings.xml
+/PAMOProject/.DS_Store
+/PAMOProject/build
+/PAMOProject/captures
+/PAMOProject/.externalNativeBuild
+/PAMOProject/.cxx
+/PAMOProject/local.properties
