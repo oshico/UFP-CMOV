@@ -16,16 +16,11 @@ import ufp.edu.pamo.project.gui.ui.theme.PAMOProjectTheme
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import ufp.edu.pamo.project.service.ServerService
-
 public class MainProjectActivity : ComponentActivity() {
     private val viewModel: ParkingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val serverIntent = Intent(this, ServerService::class.java)
-        startService(serverIntent)
 
         setContent {
             MaterialTheme {

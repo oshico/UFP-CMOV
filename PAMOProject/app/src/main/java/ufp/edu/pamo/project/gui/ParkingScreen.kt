@@ -17,14 +17,42 @@ import ufp.edu.pamo.project.database.ParkingEvent
 fun ParkingScreen (viewModel: ParkingViewModel){
     val events by viewModel.parkingEvents.observeAsState(emptyList())
     val latestStatus by viewModel.latestStatus.observeAsState("Unknown")
+    val isLoading by viewModel.isLoading.observeAsState(false)
 
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
-        Text(text = "Latest Parking Status: $latestStatus", style = MaterialTheme.typography.headlineSmall)
+        Text(
+            text = "Latest Parking Status: $latestStatus",
+            style = MaterialTheme.typography.headlineSmall
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = { viewModel.sendResetCommand("http://127.0.0.1:8080") }) {
-            Text("Reset Parking")
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Button(
+                onClick = { viewModel.sendResetCommand() },
+                modifier = Modifier.weight(1f)
+            ) {
+                Text("Reset")
+            }
+
+            Button(
+                onClick = { viewModel.syncFromServer() },
+                modifier = Modifier.weight(1f),
+                enabled = !isLoading
+            ) {
+                if (isLoading) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(20.dp),
+                        color = Color.White,
+                        strokeWidth = 2.dp
+                    )
+                } else {
+                    Text("Sync")
+                }
+            }
         }
 
         Spacer(modifier = Modifier.height(16.dp))

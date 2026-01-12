@@ -3,12 +3,13 @@ package ufp.edu.pamo.project.database
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 
 @Dao
 interface ParkingEventDAO {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(event: ParkingEvent)
 
     @Query("SELECT * FROM parking_events ORDER BY timestamp DESC")
